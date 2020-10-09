@@ -3,7 +3,7 @@
 ## Assignment 2, Question 1
 
 ## Set working directory
-setwd("I:/Evan/Documents/Umass/Econ 753/Assignments/Assignment 2")
+setwd("I:/Evan/Documents/Umass/Econ 753/EvanWasner_Econ753_ProblemSets/Assignment 2")
 
 ## Libraries
 library(foreign)
@@ -43,3 +43,5 @@ chow.lm65 <- lm(lnrent ~ d61 + d62 + d63 + d64 + d65 + lnmult + lnmem + lnaccess
                data=filter(chow, year>=60 & year<=65))
 
 save(chow.lm65,file="chow.lm65.Rdata")
+
+## This is a test
