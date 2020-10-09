@@ -1,0 +1,31 @@
+---
+title: "Econ 753 HW2"
+author: "Evan Wasner"
+date: "10/13/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Part 1
+
+## Question 3a
+
+``` {r}
+load("cor59.Rdata")
+load("cor65.Rdata")
+load("chow.lm65.Rdata")
+```
+
+```{r, layout="l-body-outset"}
+library(knitr)
+kable(cor59)
+kable(cor65)
+```
+
+```{r, layout="l-body-outset"}
+library(pander)
+pander(summary(chow.lm65))
+```
