@@ -7,7 +7,7 @@ setwd("I:/Evan/Documents/Umass/Econ 753/EvanWasner_Econ753_ProblemSets/Assignmen
 
 ## Libraries
 library(foreign)
-library(dplyr)
+library(tidyverse)
 
 ## Clear workplace
 rm(list = ls())
@@ -39,9 +39,13 @@ save(cor65,file="cor65.Rdata")
 ##   PART b   ##
 ################
 
+## Run regression of lnrent and save data
 chow.lm65 <- lm(lnrent ~ d61 + d62 + d63 + d64 + d65 + lnmult + lnmem + lnaccess, 
                data=filter(chow, year>=60 & year<=65))
-
 save(chow.lm65,file="chow.lm65.Rdata")
 
-## This is a test
+## Create table for price indices
+priceIndexTable <- data.frame(Year=c("1960", "1961", "1962", "1963", "1964", "1965"),
+                              Estimated_Coefficient=chow.lm65$coefficients[1:6])
+priceIndexTable <- mutate(priceIndexTable, Price_Index=ifelse(Year==1960,1,exp(Estimated_Coefficient)))
+save(priceIndexTable,file="priceIndexTable.Rdata")

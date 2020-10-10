@@ -17,6 +17,7 @@ knitr::opts_chunk$set(echo = FALSE)
 load("cor59.Rdata")
 load("cor65.Rdata")
 load("chow.lm65.Rdata")
+load("priceIndexTable.Rdata")
 ```
 
 ```{r, layout="l-body-outset"}
@@ -28,4 +29,9 @@ kable(cor65)
 ```{r, layout="l-body-outset"}
 library(pander)
 pander(summary(chow.lm65))
+```
+
+```{r, layout="l-body-outset"}
+library(knitr)
+kable(priceIndexTable)
 ```
