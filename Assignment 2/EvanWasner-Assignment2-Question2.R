@@ -43,5 +43,10 @@ CcpiUAnnual <- mutate(CcpiUAnnual, previous=lag(cpi), inflation=100*(cpi-previou
 
 
 
-ggplot(filter(bind_rows(cpiUAnnual,CcpiUAnnual), year >= 2000), aes(x=year)) + geom_point(aes(y=inflation, color=type)) +
+ggplot(filter(bind_rows(cpiUAnnual,CcpiUAnnual), year >= 1970), aes(x=year)) + 
+  geom_line(aes(y=inflation, color=type, group = 1), size=2) +
+  scale_x_discrete(breaks=c(1970,1980,1990,2000,2010,2020))
+
+ggplot(filter(bind_rows(cpiUAnnual,CcpiUAnnual), year >= 1970), aes(x=year)) + 
+  geom_point(aes(y=inflation, color=type), size=2) +
   scale_x_discrete(breaks=c(1970,1980,1990,2000,2010,2020))
