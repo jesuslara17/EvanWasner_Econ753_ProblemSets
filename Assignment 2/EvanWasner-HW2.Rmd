@@ -36,9 +36,11 @@ The correlation coefficients maintained the same signs throughout the two period
 
 ## Question 3b
 
+In part b, we run a regression for the years 1960-1965 of lnrent on lnmult, lnmem, lnaccess, and a list of dummy variables indicating if the observation takes place in a particular year (excluding the year 1960). 
+
 ```{r, layout="l-body-outset"}
 library(pander)
-pander(summary(chow.lm65))
+pander(summary(chow.lm65), caption="Quality-Controlled Regression of lnrent on Quality-Variables")
 ```
 
 ```{r, layout="l-body-outset"}
