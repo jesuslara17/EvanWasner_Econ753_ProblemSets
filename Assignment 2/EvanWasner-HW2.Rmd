@@ -9,10 +9,6 @@ output: pdf_document
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Part 1
-
-## Question 3a
-
 ``` {r}
 load("cor59.Rdata")
 load("cor65.Rdata")
@@ -20,11 +16,25 @@ load("chow.lm65.Rdata")
 load("priceIndexTable.Rdata")
 ```
 
+# Part 1 - Berndt Exercises
+
+In part 1, we analyze a hedonic price model constructed by Gregory Chow in the rental market for computers. Chow constructs a quality-controlled model of price indices using memory time, multiplication time, and access time as the set of qualitative characteristics. We are asked to replicate Chow's results and perform further analysis.
+
+## Question 3a
+
+In question 3a, we construct a correlation matrix for the regession variables, both for the 1954-1959 and 1960-1965 time periods.
+
 ```{r, layout="l-body-outset"}
 library(knitr)
-kable(cor59)
-kable(cor65)
+kable(cor59, caption="Correlation Matrix for 1954-1959")
+kable(cor65, caption="Correlation Matrix for 1960-1965")
 ```
+
+We can see that the variables are all highly correlated with each other, with many of the correlation coefficients coming close to 1. This indicates that Chow's concern over collinearity was a valid concern, as several of the independent variables maintained high correlation coefficients (e.g. the correlation between lnmult and lnaccess is 0.863 in the 1954-1959 range and 0.774 in the 1960-1965 range). 
+
+The correlation coefficients maintained the same signs throughout the two periods, but changed somewhat significantly in values, with the change in magnitudes of some of the correlation coefficients changing by as much as 30%. Therefore, it was correct for Chow to perform separate regressions for the two time periods, as the relation between qualitative characteristics changed somewhat significantly between the two price periods.
+
+## Question 3b
 
 ```{r, layout="l-body-outset"}
 library(pander)
@@ -35,3 +45,13 @@ pander(summary(chow.lm65))
 library(knitr)
 kable(priceIndexTable)
 ```
+
+
+
+# Part 3 - Replication Paper Topic
+
+Clark LP, Millet DB, Marshall JD (2014). National Patterns in Environmental Injustice and Inequality: Outdoor $NO_2$ Air Pollution in the United States. PLoS ONE 9(4): e94431. doi:10.1371/journal.pone.0094431
+
+For my replication paper, I will replicate the paper titled "National Patterns in Environmental Injustice and Inequality: Outdoor $NO_2$ Air Pollution in the United States" by Clark et al. The paper describes spatial patterns in environmental injustice and inequality for nitrogen dioxide ($NO_2$) concentrations in the United States. It uses Census demographic data and a recently published dataset of outdoor ($NO_2$) concentrations. It compares ($NO_2$) concentrations in populations of different demographics and in different locations (e.g. urban vs rural). 
+
+There are three tables and two figures. Table 1 provides data on ($NO_2$) concentration for different populations. Table 2 offers comparisons of specific populations. Table 3 provides "environmental justice" and "environmental inequality" indices for different areas. Figure 1 plots a regression of ($NO_2$) concentration on household income for different regions. Figure 2 projects the environmental justice and inequality indices onto a map of the United states. I am interested in replicating all tables and figures, although I will likely be unable to replicate the figure of the US map. Finally, I am interested in taking a deeper look at the data and offer any other revelations I come across.
